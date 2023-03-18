@@ -1,4 +1,6 @@
 import sqlite3
+import random
+import logging
 
 from flask import Flask, jsonify, json, render_template, request, url_for, redirect, flash
 from werkzeug.exceptions import abort
@@ -21,6 +23,31 @@ def get_post(post_id):
 # Define the Flask application
 app = Flask(__name__)
 app.config['SECRET_KEY'] = 'your secret key'
+
+#Define the status and metric endpoint health check
+
+@app.route('/status')
+def status():
+    response = app.response_class(
+            response=json.dumps({"result":"OK - healthy"}),
+            status=200,
+            mimetype='application/json'
+    )
+    return response
+
+@app.route('/metric')
+def metric():
+    data = {
+        'metric1': random.randint(1, 100),
+        'metric2': random.randint(1, 100),
+        'metric3': random.randint(1, 100)
+    }
+    response = app.response_class(
+        response=json.dumps(data),
+        status=200,
+        mimetype='application/json'
+    )
+    return response
 
 # Define the main route of the web application 
 @app.route('/')
@@ -67,4 +94,5 @@ def create():
 
 # start the application on port 3111
 if __name__ == "__main__":
+   logging.basicConfig(filename='app.log',level=logging.DEBUG)
    app.run(host='0.0.0.0', port='3111')
