@@ -26,7 +26,7 @@ app.config['SECRET_KEY'] = 'your secret key'
 
 #Define the status and metric endpoint health check
 
-@app.route('/status')
+@app.route('/healthz')
 def status():
     response = app.response_class(
             response=json.dumps({"result":"OK - healthy"}),
