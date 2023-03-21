@@ -27,18 +27,15 @@ app.config['SECRET_KEY'] = 'your secret key'
 #Define the status and metric endpoint health check
 
 @app.route("/healthz")
-def health():
+def healthz():
     try:
-        conn = sqlite3.connect("database.db")
-        cursor = conn.cursor()
-        cursor.execute("SELECT name FROM sqlite_master WHERE type='table' AND name='posts';")
-        result = cursor.fetchone()
-        if result is None:
-            return "Unhealthy - Required table 'posts' does not exist", 500
-        else:
-            return "OK - healthy"
-    except sqlite3.Error as e:
-        return f"Unhealthy - {e}", 500
+        connection = get_db_connection()
+        connection.cursor()
+        connection.execute("SELECT * FROM posts")
+        connection.close()
+        return {"result": "OK - healthy"}
+    except Exception:
+        return {"result": "ERROR - unhealthy"}, 500
 
 @app.route('/metric')
 def metric():
