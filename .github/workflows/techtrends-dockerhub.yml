@@ -12,6 +12,8 @@ jobs:
   docker:
     runs-on: ubuntu-latest
     steps:
+      - name: Checkout
+        uses: actions/checkout@v2
       -
         name: Set up QEMU
         uses: docker/setup-qemu-action@v2
@@ -33,5 +35,4 @@ jobs:
           push: true
           tags: |
             helenagomezvillegas/techtrends:latest
-            # helenagomezvillegas/techtrends:custom-tag
             helenagomezvillegas/techtrends:v1.0.0
