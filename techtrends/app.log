@@ -1,0 +1,46 @@
+WARNING:werkzeug: * Running on all addresses.
+   WARNING: This is a development server. Do not use it in a production deployment.
+INFO:werkzeug: * Running on http://192.168.86.146:3111/ (Press CTRL+C to quit)
+INFO:werkzeug:127.0.0.1 - - [21/Mar/2023 11:20:32] "GET /healthz HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [21/Mar/2023 11:21:13] "GET /healthz HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [21/Mar/2023 11:21:13] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+INFO:werkzeug:127.0.0.1 - - [21/Mar/2023 11:21:50] "[35m[1mGET /healthz HTTP/1.1[0m" 500 -
+INFO:werkzeug:127.0.0.1 - - [21/Mar/2023 11:22:12] "[35m[1mGET /healthz HTTP/1.1[0m" 500 -
+INFO:werkzeug:127.0.0.1 - - [21/Mar/2023 11:22:21] "[35m[1mGET /healthz HTTP/1.1[0m" 500 -
+INFO:werkzeug:127.0.0.1 - - [21/Mar/2023 11:22:24] "[35m[1mGET /healthz HTTP/1.1[0m" 500 -
+INFO:werkzeug:127.0.0.1 - - [21/Mar/2023 11:23:11] "[35m[1mGET /healthz HTTP/1.1[0m" 500 -
+WARNING:werkzeug: * Running on all addresses.
+   WARNING: This is a development server. Do not use it in a production deployment.
+INFO:werkzeug: * Running on http://192.168.86.146:3111/ (Press CTRL+C to quit)
+INFO:werkzeug:127.0.0.1 - - [21/Mar/2023 11:25:06] "[35m[1mGET /healthz HTTP/1.1[0m" 500 -
+INFO:werkzeug:127.0.0.1 - - [21/Mar/2023 11:25:11] "[35m[1mGET /healthz HTTP/1.1[0m" 500 -
+ERROR:app:Exception on / [GET]
+Traceback (most recent call last):
+  File "/Library/Frameworks/Python.framework/Versions/3.7/lib/python3.7/site-packages/flask/app.py", line 2077, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/Library/Frameworks/Python.framework/Versions/3.7/lib/python3.7/site-packages/flask/app.py", line 1525, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/Library/Frameworks/Python.framework/Versions/3.7/lib/python3.7/site-packages/flask/app.py", line 1523, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/Library/Frameworks/Python.framework/Versions/3.7/lib/python3.7/site-packages/flask/app.py", line 1509, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**req.view_args)
+  File "app.py", line 61, in index
+    posts = connection.execute('SELECT * FROM posts').fetchall()
+sqlite3.OperationalError: no such table: posts
+INFO:werkzeug:127.0.0.1 - - [21/Mar/2023 11:25:18] "[35m[1mGET / HTTP/1.1[0m" 500 -
+INFO:werkzeug:127.0.0.1 - - [21/Mar/2023 11:25:27] "[35m[1mGET /healthz HTTP/1.1[0m" 500 -
+ERROR:app:Exception on / [GET]
+Traceback (most recent call last):
+  File "/Library/Frameworks/Python.framework/Versions/3.7/lib/python3.7/site-packages/flask/app.py", line 2077, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/Library/Frameworks/Python.framework/Versions/3.7/lib/python3.7/site-packages/flask/app.py", line 1525, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/Library/Frameworks/Python.framework/Versions/3.7/lib/python3.7/site-packages/flask/app.py", line 1523, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/Library/Frameworks/Python.framework/Versions/3.7/lib/python3.7/site-packages/flask/app.py", line 1509, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**req.view_args)
+  File "app.py", line 61, in index
+    posts = connection.execute('SELECT * FROM posts').fetchall()
+sqlite3.OperationalError: no such table: posts
+INFO:werkzeug:127.0.0.1 - - [21/Mar/2023 11:25:52] "[35m[1mGET / HTTP/1.1[0m" 500 -
+INFO:werkzeug:127.0.0.1 - - [21/Mar/2023 11:26:00] "[35m[1mGET /healthz HTTP/1.1[0m" 500 -
