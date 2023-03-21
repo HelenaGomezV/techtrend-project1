@@ -31,4 +31,7 @@ jobs:
           context: "{{defaultContext}}:techtrends"
           platform: linux/amd64
           push: true
-          tags: helenagomezvillegas/techtrends:latest
+          tags: |
+            helenagomezvillegas/techtrends:latest
+            # helenagomezvillegas/techtrends:custom-tag
+            # helenagomezvillegas/techtrends:v1.0.0
