@@ -44,3 +44,25 @@ Traceback (most recent call last):
 sqlite3.OperationalError: no such table: posts
 INFO:werkzeug:127.0.0.1 - - [21/Mar/2023 11:25:52] "[35m[1mGET / HTTP/1.1[0m" 500 -
 INFO:werkzeug:127.0.0.1 - - [21/Mar/2023 11:26:00] "[35m[1mGET /healthz HTTP/1.1[0m" 500 -
+WARNING:werkzeug: * Running on all addresses.
+   WARNING: This is a development server. Do not use it in a production deployment.
+INFO:werkzeug: * Running on http://192.168.86.146:3111/ (Press CTRL+C to quit)
+WARNING:werkzeug: * Running on all addresses.
+   WARNING: This is a development server. Do not use it in a production deployment.
+INFO:werkzeug: * Running on http://192.168.86.146:3111/ (Press CTRL+C to quit)
+WARNING:werkzeug: * Running on all addresses.
+   WARNING: This is a development server. Do not use it in a production deployment.
+INFO:werkzeug: * Running on http://192.168.86.146:3111/ (Press CTRL+C to quit)
+INFO:werkzeug:127.0.0.1 - - [21/Mar/2023 16:47:21] "GET / HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [21/Mar/2023 16:47:22] "[36mGET /static/css/main.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [21/Mar/2023 16:47:24] "GET /create HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [21/Mar/2023 16:47:24] "[36mGET /static/css/main.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [21/Mar/2023 16:47:32] "[32mPOST /create HTTP/1.1[0m" 302 -
+INFO:werkzeug:127.0.0.1 - - [21/Mar/2023 16:47:32] "GET / HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [21/Mar/2023 16:47:32] "[36mGET /static/css/main.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [21/Mar/2023 16:47:43] "GET /healthz HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [21/Mar/2023 16:47:53] "[33mGET /metrics HTTP/1.1[0m" 404 -
+WARNING:werkzeug: * Running on all addresses.
+   WARNING: This is a development server. Do not use it in a production deployment.
+INFO:werkzeug: * Running on http://192.168.86.146:3111/ (Press CTRL+C to quit)
+INFO:werkzeug:127.0.0.1 - - [21/Mar/2023 16:48:53] "GET /metrics HTTP/1.1" 200 -

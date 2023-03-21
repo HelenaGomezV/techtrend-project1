@@ -37,8 +37,8 @@ def healthz():
     except Exception:
         return {"result": "ERROR - unhealthy"}, 500
 
-@app.route('/metric')
-def metric():
+@app.route('/metrics')
+def metrics():
     data = {
         'metric1': random.randint(1, 100),
         'metric2': random.randint(1, 100),
