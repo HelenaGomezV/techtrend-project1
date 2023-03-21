@@ -1,11 +1,31 @@
 ## Docker commands used to build the application 
 # TODO: insert the docker build command
+docker build -t my-flask-app .
 
 ## Docker commands used to run the application
 # TODO: insert the docker run command
-
+docker run -p 3111:3111 my-flask-app
 ## Docker commands used to get the application logs
 # TODO: insert the docker logs command
-
+docker logs 188f0640f5d0 
 ## Logs from the container running the TechTrends application
 # TODO: paste logs from the Docker container 
+➜  techtrends-project1 git:(main) ✗ docker logs 188f0640f5d0 
+ * Serving Flask app 'app' (lazy loading)
+ * Environment: production
+   WARNING: This is a development server. Do not use it in a production deployment.
+   Use a production WSGI server instead.
+ * Debug mode: off
+ # Build the docker image 
+   docker build -t techtrends .  
+ # Docker run application 
+   docker run -p 7111:3111 techtrends 
+ # Docker logs 
+ * Serving Flask app 'app' (lazy loading)
+ * Environment: production
+   WARNING: This is a development server. Do not use it in a production deployment.
+   Use a production WSGI server instead.
+ * Debug mode: off
+ # Test the docker image 
+   docker pull helenagomezvillegas/techtrends:latest
+
