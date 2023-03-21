@@ -1,6 +1,6 @@
 import sqlite3
-import random
 import logging
+
 
 from flask import Flask, jsonify, json, render_template, request, url_for, redirect, flash
 from werkzeug.exceptions import abort
@@ -34,8 +34,10 @@ def healthz():
         connection.cursor()
         connection.execute("SELECT * FROM posts")
         connection.close()
+        app.logger.info("Healtly check  request successfull")
         return {"result": "OK - healthy"}
     except Exception:
+        app.logger.info("Healtly check  request unsuccessfull")
         return {"result": "ERROR - unhealthy"}, 500
 
 @app.route('/metrics')
@@ -56,6 +58,7 @@ def metrics():
         status=200,
         mimetype='application/json'
     )
+    app.logger.info('Metrics request successfull')
     return response
 
 # Define the main route of the web application 
@@ -72,13 +75,16 @@ def index():
 def post(post_id):
     post = get_post(post_id)
     if post is None:
+      app.logger.error("404 pages non-existing articles are accessed")
       return render_template('404.html'), 404
     else:
+      app.logger.debug("Access articule successfull")
       return render_template('post.html', post=post)
 
 # Define the About Us page
 @app.route('/about')
 def about():
+    app.logger.debug("Access about us successfull")
     return render_template('about.html')
 
 # Define the post creation functionality 
@@ -96,12 +102,13 @@ def create():
                          (title, content))
             connection.commit()
             connection.close()
-
+          
             return redirect(url_for('index'))
-
+    app.logger.debug("create a new article successfull")
     return render_template('create.html')
 
 # start the application on port 3111
 if __name__ == "__main__":
-   logging.basicConfig(filename='app.log',level=logging.DEBUG)
-   app.run(host='0.0.0.0', port='3111')
+    logging.basicConfig(filename='app.log',
+                level=logging.DEBUG, format='%(asctime)s %(levelname)s %(name)s %(threadName)s : %(message)s')
+    app.run(host='0.0.0.0', port='3111')
