@@ -23,6 +23,7 @@ def get_post(post_id):
 # Define the Flask application
 app = Flask(__name__)
 app.config['SECRET_KEY'] = 'your secret key'
+app.config['connection_count'] = 0
 
 #Define the status and metric endpoint health check
 
@@ -39,12 +40,18 @@ def healthz():
 
 @app.route('/metrics')
 def metrics():
+    connection = get_db_connection()
+    posts = connection.execute('SELECT * FROM posts').fetchall()
+    app.config['connection_count'] += 1
+    connection.close()
+    count_posts = len(posts)
+    db_connection_count = str(app.config['connection_count']) 
     data = {
-        'metric1': random.randint(1, 100),
-        'metric2': random.randint(1, 100),
-        'metric3': random.randint(1, 100)
+        "db_connection_count" : db_connection_count,
+        "post_count": count_posts
     }
     response = app.response_class(
+        
         response=json.dumps(data),
         status=200,
         mimetype='application/json'
