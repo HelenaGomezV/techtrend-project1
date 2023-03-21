@@ -31,4 +31,4 @@ jobs:
           context: .
           platform: linux/amd64
           push: true
-          tags: helenagomezvillegas/techtrends:lates
+          tags: helenagomezvillegas/techtrends:latest
