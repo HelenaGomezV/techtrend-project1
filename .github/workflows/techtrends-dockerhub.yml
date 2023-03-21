@@ -34,4 +34,4 @@ jobs:
           tags: |
             helenagomezvillegas/techtrends:latest
             # helenagomezvillegas/techtrends:custom-tag
-            # helenagomezvillegas/techtrends:v1.0.0
+            helenagomezvillegas/techtrends:v1.0.0
